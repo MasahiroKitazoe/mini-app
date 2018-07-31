@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: mini-app_production
-  username: mini-app
-  password: <%= ENV['MINI-APP_DATABASE_PASSWORD'] %>
+  database: "heroku_6c124dbe846e628"
+  username: "baadf6c5bc482b"
+  password: <%= ENV['DATABASE_PASSWORD'] %>
