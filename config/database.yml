@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: "heroku_6c124dbe846e628"
-  username: "baadf6c5bc482b"
+  database: "heroku_a5b03855cfd49c3"
+  username: "b4c299c086dc7d"
   password: <%= ENV['DATABASE_PASSWORD'] %>
