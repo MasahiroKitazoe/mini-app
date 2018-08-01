@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    
+    @blog = Blog.find(params[:id])
   end
 
   def new
@@ -15,7 +15,7 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    
+    @blog = Blog.find(params[:id])
   end
 
   def create
@@ -28,12 +28,18 @@ class BlogsController < ApplicationController
   end
 
   def update
-    
+    @blog = Blog.find(params[:id])
+    if @blog.update_attributes(blog_params)
+      save_success("投稿を更新しました！")
+    else
+      render action: :edit
+    end
   end
 
     private
     def blog_params
       params.require(:blog).permit(
+        :title,
         :text
         ).merge(user_id: current_user.id)
     end

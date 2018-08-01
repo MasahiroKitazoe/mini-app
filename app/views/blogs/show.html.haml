@@ -1,0 +1,12 @@
+.row
+  .col.s12.m2
+  .col.s12.m8
+    .card.white
+      .card-content.black-text
+        %span.card-title= @blog.title
+        %p= @blog.text
+        %br/
+        %p= "Written by : " + @blog.user.nickname
+      .card-action
+        = link_to "投稿を編集", edit_blog_path(@blog.id), class: "waves-effect waves-light blue btn",  data: { turbolinks: false }
+        = link_to "投稿を削除", "/blogs/#{@blog.id}", method: :delete, class: "waves-effect waves-light blue btn"

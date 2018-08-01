@@ -8,7 +8,7 @@
         %li
           = link_to "マイブログ", "#"
         %li
-          = link_to "新規投稿", new_blog_path, class: "waves-effect waves-light green btn"
+          = link_to "新規投稿", new_blog_path, class: "waves-effect waves-light green btn",  data: { turbolinks: false }
       - else
         %li
           = link_to "ログイン", new_user_session_path
