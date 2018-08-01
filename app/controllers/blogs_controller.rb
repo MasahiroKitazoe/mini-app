@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    
+    @blogs = Blog.all.includes(:user)
   end
 
   def show
@@ -22,6 +22,8 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     if @blog.save
       save_success("投稿しました！")
+    else
+      render action: :new
     end
   end
 
