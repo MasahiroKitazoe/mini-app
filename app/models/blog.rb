@@ -1,3 +1,5 @@
 class Blog < ApplicationRecord
-  has_many :users
+  belongs_to :user
+
+  validates :text, presence: true
 end
