@@ -50,3 +50,4 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
+  socket: /tmp/mysql.sock(2)
