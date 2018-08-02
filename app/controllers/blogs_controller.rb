@@ -36,6 +36,15 @@ class BlogsController < ApplicationController
     end
   end
 
+  def destroy
+    @blog = Blog.find(params[:id])
+    if @blog.destroy
+      save_success("投稿を削除しました")
+    else
+      render action: :index
+    end
+  end
+
     private
     def blog_params
       params.require(:blog).permit(
