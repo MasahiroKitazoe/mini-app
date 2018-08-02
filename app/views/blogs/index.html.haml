@@ -1,14 +1,2 @@
 -@blogs.each do |blog|
-  .row
-    .col.s12.m3
-    .col.s12.m6
-      .card.white
-        .card-content.black-text
-          %span.card-title= blog.title
-          %p= blog.show_text
-          %br/
-          %p= "Written by : " + blog.user.nickname
-        .card-action
-          = link_to "詳細を見る", blog_path(blog.id), class: "waves-effect waves-light blue btn"
-          = link_to "投稿を編集", edit_blog_path(blog.id), class: "waves-effect waves-light blue btn",  data: { turbolinks: false }
-          = link_to "投稿を削除", "/blogs/#{blog.id}", method: :delete, class: "waves-effect waves-light blue btn"
+  = render 'shared/card', blog: blog

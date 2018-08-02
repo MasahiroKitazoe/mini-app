@@ -6,7 +6,7 @@
         %li
           = link_to "ログアウト", destroy_user_session_path, method: :delete
         %li
-          = link_to "マイブログ", "#"
+          = link_to "マイブログ", user_path(current_user.id)
         %li
           = link_to "新規投稿", new_blog_path, class: "waves-effect waves-light green btn",  data: { turbolinks: false }
       - else
