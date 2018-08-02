@@ -48,10 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter:  mysql2   # postgresの場合はadapterをpostgresql
-  encoding: utf8
+  <<: *default
   database: <%= ENV['DB_NAME'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  host:     <%= ENV['DB_HOSTNAME'] %>
-  port:     <%= ENV['DB_PORT'] %>
