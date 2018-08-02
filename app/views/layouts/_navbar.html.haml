@@ -1,6 +1,6 @@
 %nav.blue
   .nav-wrapper
-    %a.brand-logo{:href => "/"} BLOG
+    %a.brand-logo{:href => "#!"} BLOG
     %ul#nav-mobile.right.hide-on-med-and-down
       - if user_signed_in?
         %li
@@ -14,3 +14,5 @@
           = link_to "ログイン", new_user_session_path
         %li
           = link_to "新規登録", new_user_registration_path
+      %li
+        = link_to "モード切り替え", "#", id: "mode-change"
