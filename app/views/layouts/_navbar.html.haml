@@ -1,18 +1,20 @@
 %nav.blue
   .nav-wrapper
-    %a.brand-logo{:href => "#!"} BLOG
+    %a.brand-logo.nav-element#service-name{:href => "#!"} BLOG
     %ul#nav-mobile.right.hide-on-med-and-down
       - if user_signed_in?
         %li
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-element"
         %li
-          = link_to "マイブログ", user_path(current_user.id)
+          = link_to "マイブログ", user_path(current_user.id), class: "nav-element"
         %li
-          = link_to "新規投稿", new_blog_path, class: "waves-effect waves-light green btn",  data: { turbolinks: false }
+          = link_to "新規投稿", new_blog_path, class: "waves-effect waves-light green btn", id: "post_btn",  data: { turbolinks: false }
       - else
         %li
-          = link_to "ログイン", new_user_session_path
+          = link_to "ログイン", new_user_session_path, class: "nav-element"
         %li
-          = link_to "新規登録", new_user_registration_path
+          = link_to "新規登録", new_user_registration_path, class: "nav-element"
       %li
-        = link_to "モード切り替え", "#", id: "mode-change"
+        = link_to "MODE::G", "#", id: "mode-g", class: "nav-element mode-btn"
+      %li
+        = link_to "MODE::P", "#", id: "mode-p", class: "nav-element mode-btn"
