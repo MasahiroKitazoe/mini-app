@@ -4,10 +4,12 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all.includes(:user)
+    gon.blogs = @blogs
   end
 
   def show
     @blog = Blog.find(params[:id])
+    gon.blog = @blog
   end
 
   def new
