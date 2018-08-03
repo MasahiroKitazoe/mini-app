@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @blogs = Blog.all.includes(:user)
+    @blogs = Blog.all.includes(:user).order('created_at DESC')
     gon.blogs = @blogs
   end
 

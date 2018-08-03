@@ -94,11 +94,15 @@ $(function(){
 
   // アイコンがクリックされたら、元の文字列を表示する
   $(document).on('click', '#appear_message', function(e){
+    e.preventDefault();
     var id = $(this).parent().attr('data');
     var title_tag = $(this).next();
     var body_tag = title_tag.next();
-    e.preventDefault();
-    var blog = getBLOG(gon.blogs, Number(id));
+    if (gon.blog === undefined) {
+      var blog = getBLOG(gon.blogs, Number(id));
+    } else if (gon.blogs === undefined) {
+      var blog = gon.blog
+    }
 
     // 隠されたテキストを表示
     var title = blog.title
