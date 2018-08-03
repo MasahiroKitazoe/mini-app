@@ -29,11 +29,12 @@ $(function(){
       var texts = {main: "I am Groot", title: "I am Groot", body: "I am Groot", btn: "I am Groot"}
       var colors = {main: "#43a047", action_back: "#f4ff81", main_class: "green darken-1"}
       var text_colors = {nav: "white", body: "black", action_btn: "white"}
-  } else if (mode === "mode-p"){
+    } else if (mode === "mode-p"){
       var texts = {main: "ピカチュウ", title: "ピカー、チュウー！", body: "ピカピカピカ・・ピカピッカー！", btn: "ピカピ"}
       var colors = {main: "#ffff00", action_back: "black", main_class: "yellow accent-2"}
       var text_colors = {nav: "black", body: "white", action_btn: "black"}
-  }
+    }
+
     changeTEXT(texts);
     changeCOLOR(colors);
     changeTEXTCOL(text_colors);
@@ -62,4 +63,12 @@ $(function(){
       location.reload();
     }
   });
+
+  // ページ遷移時にモード表示を維持する
+  $(document).ready(function(){
+      var mode = sessionStorage.mode
+      if (mode !== null) {
+        changeHTML(mode);
+      }
+    })
 });

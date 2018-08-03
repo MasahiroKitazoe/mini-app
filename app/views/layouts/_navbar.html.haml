@@ -1,20 +1,20 @@
 %nav.blue
   .nav-wrapper
-    %a.brand-logo.nav-element#service-name{:href => "#!"} BLOG
+    %a#service-name.brand-logo.nav-element{"data-turbolinks" => "false", :href => "/"} BLOG
     %ul#nav-mobile.right.hide-on-med-and-down
       - if user_signed_in?
         %li
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-element"
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-element",  data: { turbolinks: false }
         %li
-          = link_to "マイブログ", user_path(current_user.id), class: "nav-element"
+          = link_to "マイブログ", user_path(current_user.id), class: "nav-element",  data: { turbolinks: false }
         %li
-          = link_to "新規投稿", new_blog_path, class: "waves-effect waves-light green btn", id: "post_btn",  data: { turbolinks: false }
+          = link_to "新規投稿", new_blog_path, class: "waves-effect waves-light green btn", id: "post_btn"
       - else
         %li
-          = link_to "ログイン", new_user_session_path, class: "nav-element"
+          = link_to "ログイン", new_user_session_path, class: "nav-element",  data: { turbolinks: false }
         %li
-          = link_to "新規登録", new_user_registration_path, class: "nav-element"
+          = link_to "新規登録", new_user_registration_path, class: "nav-element",  data: { turbolinks: false }
       %li
-        = link_to "MODE::G", "#", id: "mode-g", class: "nav-element mode-btn"
+        = link_to "MODE::G", "#", id: "mode-g", class: "nav-element mode-btn",  data: { turbolinks: false }
       %li
-        = link_to "MODE::P", "#", id: "mode-p", class: "nav-element mode-btn"
+        = link_to "MODE::P", "#", id: "mode-p", class: "nav-element mode-btn",  data: { turbolinks: false }
