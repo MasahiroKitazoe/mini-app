@@ -4,11 +4,11 @@
       .col.s3
       .input-field.col.s6
         %p.edit-label タイトルを編集する
-        = f.text_area :title, class: "materialize-textarea", id: "textarea1"
+        = f.text_area :title, class: "materialize-textarea", id: "edit-title"
     .row
       .col.s2
       .input-field.col.s8
         %p.edit-label 記事を編集する
-        = f.text_area :text, class: "materialize-textarea", id: "textarea1"
+        = f.text_area :text, class: "materialize-textarea", id: "edit-text"
       .col.s12#blog_submit
         =f.submit :投稿する, class: "waves-effect waves-light blue btn"
