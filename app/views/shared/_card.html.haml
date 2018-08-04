@@ -9,5 +9,6 @@
         %p= "Written by : " + blog.user.nickname
       .card-action
         = link_to "詳細を見る", blog_path(blog.id), class: "waves-effect waves-light blue btn",  data: { turbolinks: false }
-        = link_to "投稿を編集", edit_blog_path(blog.id), class: "waves-effect waves-light blue btn"
-        = link_to "投稿を削除", "/blogs/#{blog.id}", method: :delete, class: "waves-effect waves-light blue btn",  data: { turbolinks: false }
+        - if user_signed_in? && blog.user.id == current_user.id
+          = link_to "投稿を編集", edit_blog_path(blog.id), class: "waves-effect waves-light blue btn"
+          = link_to "投稿を削除", "/blogs/#{blog.id}", method: :delete, class: "waves-effect waves-light blue btn",  data: { turbolinks: false }
