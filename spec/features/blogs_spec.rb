@@ -95,4 +95,30 @@ RSpec.feature "Blogs", type: :feature do
       end
     end
   end
+
+  context "when user not signed in" do
+
+    scenario "user can't find button to create a new blog" do
+      visit root_path
+      expect(page).to_not have_content "新規投稿"
+    end
+
+    scenario "user tries to render new action" do
+      visit new_blog_path
+      expect(page).to have_content "アカウント登録もしくはログインしてください。"
+    end
+
+    scenario "user can't find edit and destroy button in index page" do
+      visit blogs_path
+      expect(page).to_not have_content "投稿を編集"
+      expect(page).to_not have_content "投稿を削除"
+    end
+
+    scenario "user can't find edit and destroy button in show page" do
+      blog = FactoryGirl.create(:blog)
+      visit blog_path(blog.id)
+      expect(page).to_not have_content "投稿を編集"
+      expect(page).to_not have_content "投稿を削除"
+    end
+  end
 end
